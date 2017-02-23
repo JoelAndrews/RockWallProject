@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.id_box = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.freeclimbbox = new System.Windows.Forms.CheckBox();
+            this.belayBox = new System.Windows.Forms.CheckBox();
+            this.lNameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.fNameBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.belayCertButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.freeClimbButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -51,7 +51,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.id_box);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(25, 36);
             this.groupBox1.Name = "groupBox1";
@@ -60,12 +60,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search for Patron";
             // 
-            // textBox2
+            // id_box
             // 
-            this.textBox2.Location = new System.Drawing.Point(160, 41);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(209, 31);
-            this.textBox2.TabIndex = 3;
+            this.id_box.Location = new System.Drawing.Point(160, 41);
+            this.id_box.Name = "id_box";
+            this.id_box.Size = new System.Drawing.Size(209, 31);
+            this.id_box.TabIndex = 3;
             // 
             // label2
             // 
@@ -78,11 +78,11 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.checkBox2);
-            this.groupBox2.Controls.Add(this.checkBox1);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.freeclimbbox);
+            this.groupBox2.Controls.Add(this.belayBox);
+            this.groupBox2.Controls.Add(this.lNameBox);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.fNameBox);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(25, 214);
             this.groupBox2.Name = "groupBox2";
@@ -91,28 +91,34 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Patron Found";
             // 
-            // textBox1
+            // freeclimbbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(160, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(209, 31);
-            this.textBox1.TabIndex = 3;
+            this.freeclimbbox.AutoSize = true;
+            this.freeclimbbox.Location = new System.Drawing.Point(411, 90);
+            this.freeclimbbox.Name = "freeclimbbox";
+            this.freeclimbbox.Size = new System.Drawing.Size(148, 29);
+            this.freeclimbbox.TabIndex = 7;
+            this.freeclimbbox.Text = "Free Climb";
+            this.freeclimbbox.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // belayBox
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 44);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 25);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "First Name";
+            this.belayBox.AutoSize = true;
+            this.belayBox.Location = new System.Drawing.Point(411, 40);
+            this.belayBox.Name = "belayBox";
+            this.belayBox.Size = new System.Drawing.Size(104, 29);
+            this.belayBox.TabIndex = 6;
+            this.belayBox.Text = "Belay ";
+            this.belayBox.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // lNameBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(160, 87);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(209, 31);
-            this.textBox3.TabIndex = 5;
+            this.lNameBox.Enabled = false;
+            this.lNameBox.Location = new System.Drawing.Point(160, 87);
+            this.lNameBox.Name = "lNameBox";
+            this.lNameBox.ReadOnly = true;
+            this.lNameBox.Size = new System.Drawing.Size(209, 31);
+            this.lNameBox.TabIndex = 5;
             // 
             // label1
             // 
@@ -123,29 +129,27 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Last Name";
             // 
-            // checkBox1
+            // fNameBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(411, 40);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(104, 29);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "Belay ";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.fNameBox.Enabled = false;
+            this.fNameBox.Location = new System.Drawing.Point(160, 41);
+            this.fNameBox.Name = "fNameBox";
+            this.fNameBox.ReadOnly = true;
+            this.fNameBox.Size = new System.Drawing.Size(209, 31);
+            this.fNameBox.TabIndex = 3;
             // 
-            // checkBox2
+            // label3
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(411, 90);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(148, 29);
-            this.checkBox2.TabIndex = 7;
-            this.checkBox2.Text = "Free Climb";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(35, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(116, 25);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "First Name";
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.belayCertButton);
             this.groupBox3.Location = new System.Drawing.Point(35, 420);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(308, 216);
@@ -154,18 +158,20 @@
             this.groupBox3.Text = "Belay";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
-            // button1
+            // belayCertButton
             // 
-            this.button1.Location = new System.Drawing.Point(30, 77);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(211, 62);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Change Belay Certification";
-            this.button1.UseVisualStyleBackColor = true;
+            this.belayCertButton.Enabled = false;
+            this.belayCertButton.Location = new System.Drawing.Point(30, 77);
+            this.belayCertButton.Name = "belayCertButton";
+            this.belayCertButton.Size = new System.Drawing.Size(211, 62);
+            this.belayCertButton.TabIndex = 0;
+            this.belayCertButton.Text = "Change Belay Certification";
+            this.belayCertButton.UseVisualStyleBackColor = true;
+            this.belayCertButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button2);
+            this.groupBox4.Controls.Add(this.freeClimbButton);
             this.groupBox4.Location = new System.Drawing.Point(419, 420);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(308, 216);
@@ -173,14 +179,16 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Free Climb";
             // 
-            // button2
+            // freeClimbButton
             // 
-            this.button2.Location = new System.Drawing.Point(30, 77);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(211, 62);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Change Free Climb Certification";
-            this.button2.UseVisualStyleBackColor = true;
+            this.freeClimbButton.Enabled = false;
+            this.freeClimbButton.Location = new System.Drawing.Point(17, 77);
+            this.freeClimbButton.Name = "freeClimbButton";
+            this.freeClimbButton.Size = new System.Drawing.Size(211, 62);
+            this.freeClimbButton.TabIndex = 0;
+            this.freeClimbButton.Text = "Change Free Climb Certification";
+            this.freeClimbButton.UseVisualStyleBackColor = true;
+            this.freeClimbButton.Click += new System.EventHandler(this.freeClimbButton_Click);
             // 
             // button3
             // 
@@ -190,6 +198,7 @@
             this.button3.TabIndex = 7;
             this.button3.Text = "Search";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // IssueCertificate
             // 
@@ -216,19 +225,19 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox id_box;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.CheckBox freeclimbbox;
+        private System.Windows.Forms.CheckBox belayBox;
+        private System.Windows.Forms.TextBox lNameBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox fNameBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button belayCertButton;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button freeClimbButton;
         private System.Windows.Forms.Button button3;
     }
 }

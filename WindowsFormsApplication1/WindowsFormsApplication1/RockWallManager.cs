@@ -12,9 +12,15 @@ namespace WindowsFormsApplication1
 {
     public partial class RockWallManager : Form
     {
-        public RockWallManager(int a)
+       public int level = -1;
+        public string UserName;
+        public string PassWord;
+        public RockWallManager(int a, string userName, string passWord)
         {
             InitializeComponent();
+
+            UserName = userName;
+            this.PassWord = passWord;
 
             if(a == 3)
             {
@@ -23,7 +29,7 @@ namespace WindowsFormsApplication1
             else if (a == 2)
             {
                 this.Text = "Rock Wall Manager Pro - Manager";
-                this.manageManagersStripMenu.Enabled = false;
+                //this.manageManagersStripMenu.Enabled = false;
 
             }
             else if(a == 1)
@@ -68,6 +74,8 @@ namespace WindowsFormsApplication1
 
         private void manageManagersStripMenu_Click(object sender, EventArgs e)
         {
+            ManageAdmins MA = new ManageAdmins(UserName, PassWord);
+            MA.ShowDialog();
           
         }
 

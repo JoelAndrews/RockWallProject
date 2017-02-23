@@ -53,21 +53,24 @@ namespace WindowsFormsApplication1
                     {
                         var three = row1.ItemArray[2];
 
+                  
+
+
                         if(three.ToString() == "3")
                         {
-                            RockWallManager wallM = new RockWallManager(3);
+                            RockWallManager wallM = new RockWallManager(3, one.ToString(), two.ToString());
                             wallM.Show();
 
                         }
                         else if (three.ToString() == "2")
                         {
-                            RockWallManager wallM = new RockWallManager(2);
+                            RockWallManager wallM = new RockWallManager(2, one.ToString(),two.ToString());
                             wallM.Show();
 
                         }
                         else if (three.ToString() == "1")
                         {
-                            RockWallManager wallM = new RockWallManager(1);
+                            RockWallManager wallM = new RockWallManager(1, one.ToString(), two.ToString());
                             wallM.Show();
                           
                         }

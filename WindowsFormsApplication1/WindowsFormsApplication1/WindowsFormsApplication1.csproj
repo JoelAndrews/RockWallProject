@@ -64,6 +64,12 @@
     <Compile Include="IssueIncidentReport.Designer.cs">
       <DependentUpon>IssueIncidentReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageAdmins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageAdmins.Designer.cs">
+      <DependentUpon>ManageAdmins.cs</DependentUpon>
+    </Compile>
     <Compile Include="RockWallManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IssueIncidentReport.resx">
       <DependentUpon>IssueIncidentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageAdmins.resx">
+      <DependentUpon>ManageAdmins.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RockWallManager.resx">
       <DependentUpon>RockWallManager.cs</DependentUpon>
