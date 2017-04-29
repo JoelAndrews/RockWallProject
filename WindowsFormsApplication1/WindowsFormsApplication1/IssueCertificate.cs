@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,47 @@ namespace WindowsFormsApplication1
     public partial class IssueCertificate : Form
     {
         DataSet studentTable;
+
+        public string Five
+        {
+            get
+            {
+                return "five";
+            }
+            private set
+            {
+                if(value.ToUpper() == "FALSE")
+                {
+                    belayBox.Checked = false;
+                    lblBelay.Text = "No";
+                }
+                else
+                {
+                    belayBox.Checked = true;
+                    lblBelay.Text = "Yes";
+                }
+            }
+        }
+        public string Six
+        {
+            get
+            {
+                return "six";
+            }
+            private set
+            {
+                if (value.ToUpper() == "FALSE")
+                {
+                    freeclimbbox.Checked = false;
+                    lblFreeClimb.Text = "No";
+                }
+                else
+                {
+                    freeclimbbox.Checked = true;
+                    lblFreeClimb.Text = "Yes";
+                }
+            }
+        }
         public IssueCertificate()
         {
             InitializeComponent();
@@ -32,11 +74,11 @@ namespace WindowsFormsApplication1
 
            // con.ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\joela\Documents\test.mdf; Integrated Security = True; Connect Timeout = 30;";
             studentTable = new DataSet();
-            SqlConnection sql = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\joela\Documents\test.mdf; Integrated Security = True; Connect Timeout = 30;");
+            MySqlConnection sql = new MySqlConnection(connectionstring.CS);
 
             //sql.Open();
 
-            SqlDataAdapter mySqlDataAdapter = new SqlDataAdapter("Select Count(*) From STUDENT where ID = '" + id_box.Text + "'", sql);
+            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter("Select Count(*) From STUDENT where ID = '" + id_box.Text + "'", sql);
            
 
             DataTable myDataTable = new DataTable();
@@ -47,7 +89,7 @@ namespace WindowsFormsApplication1
             if (myDataTable.Rows[0][0].ToString() == "1")
             {
 
-                SqlDataAdapter sqlDA = new SqlDataAdapter("SELECT * FROM STUDENT", sql);
+                MySqlDataAdapter sqlDA = new MySqlDataAdapter("SELECT * FROM STUDENT", sql);
 
                 DataTable table = new DataTable();
                 sqlDA.Fill(table);
@@ -68,11 +110,9 @@ namespace WindowsFormsApplication1
                         lNameBox.Text = two.ToString();
                         fNameBox.Text = one.ToString();
 
-                        var four = row1.ItemArray[3];
-                        var five = row1.ItemArray[4];
+                        Five = CheckBoolValue(row1.ItemArray[3].ToString());
+                        Six = CheckBoolValue(row1.ItemArray[4].ToString());
 
-                        belayBox.Checked = (bool)four;
-                        freeclimbbox.Checked = (bool)five;
 
                         belayCertButton.Enabled = true;
                         freeClimbButton.Enabled = true;
@@ -82,17 +122,26 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                MessageBox.Show("Incorrect UserName or Password");
+                MessageBox.Show("ID not found.");
             }
+            sql.Close();
         }
 
+        private string CheckBoolValue(string boolValue)
+        {
+            if (boolValue == "1")
+                return "True";
+            else
+                return "False";
+
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection sql = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\joela\Documents\test.mdf; Integrated Security = True; Connect Timeout = 30;");
+            MySqlConnection sql = new MySqlConnection(connectionstring.CS);
 
             //sql.Open();
 
-            SqlDataAdapter mySqlDataAdapter = new SqlDataAdapter("Select Count(*) From STUDENT where ID = '" + id_box.Text + "'", sql);
+            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter("Select Count(*) From STUDENT where ID = '" + id_box.Text + "'", sql);
 
 
             DataTable myDataTable = new DataTable();
@@ -101,7 +150,7 @@ namespace WindowsFormsApplication1
             if (myDataTable.Rows[0][0].ToString() == "1")
             {
 
-                SqlDataAdapter sqlDA = new SqlDataAdapter("SELECT * FROM STUDENT", sql);
+                MySqlDataAdapter sqlDA = new MySqlDataAdapter("SELECT * FROM STUDENT", sql);
 
                 DataTable table = new DataTable();
                 sqlDA.Fill(table);
@@ -120,7 +169,7 @@ namespace WindowsFormsApplication1
                        
                         
                          
-                        SqlCommandBuilder cb;
+                        MySqlCommandBuilder cb;
 
 
 
@@ -129,13 +178,17 @@ namespace WindowsFormsApplication1
                         table.Rows[i][3] = !belayBox.Checked;
 
                         belayBox.Checked = !belayBox.Checked;
+                        if (belayBox.Checked)
+                            lblBelay.Text = "Yes";
+                        else
+                            lblBelay.Text = "No";
+
                         //belayBox.Checked = (bool)four;
                         table.Rows[i].EndEdit();
 
-                        cb = new SqlCommandBuilder(sqlDA);
-                        sqlDA.DeleteCommand = cb.GetDeleteCommand(true);
-                        sqlDA.UpdateCommand = cb.GetUpdateCommand(true);
-                        sqlDA.InsertCommand = cb.GetInsertCommand(true);
+                        cb = new MySqlCommandBuilder(sqlDA);
+
+                        sqlDA.UpdateCommand = cb.GetUpdateCommand();
 
 
                         sqlDA.Update(table);
@@ -148,19 +201,20 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                MessageBox.Show("Incorrect UserName or Password");
+                MessageBox.Show("Id not found");
             }
+            sql.Close();
 
 
         }
 
         private void freeClimbButton_Click(object sender, EventArgs e)
         {
-            SqlConnection sql = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\joela\Documents\test.mdf; Integrated Security = True; Connect Timeout = 30;");
+            MySqlConnection sql = new MySqlConnection(connectionstring.CS);
 
             //sql.Open();
 
-            SqlDataAdapter mySqlDataAdapter = new SqlDataAdapter("Select Count(*) From STUDENT where ID = '" + id_box.Text + "'", sql);
+            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter("Select Count(*) From STUDENT where ID = '" + id_box.Text + "'", sql);
 
 
             DataTable myDataTable = new DataTable();
@@ -169,7 +223,7 @@ namespace WindowsFormsApplication1
             if (myDataTable.Rows[0][0].ToString() == "1")
             {
 
-                SqlDataAdapter sqlDA = new SqlDataAdapter("SELECT * FROM STUDENT", sql);
+                MySqlDataAdapter sqlDA = new MySqlDataAdapter("SELECT * FROM STUDENT", sql);
 
                 DataTable table = new DataTable();
                 sqlDA.Fill(table);
@@ -188,7 +242,7 @@ namespace WindowsFormsApplication1
 
 
 
-                        SqlCommandBuilder cb;
+                        MySqlCommandBuilder cb;
 
 
 
@@ -197,13 +251,22 @@ namespace WindowsFormsApplication1
                         table.Rows[i][4] = !freeclimbbox.Checked;
 
                         freeclimbbox.Checked = !freeclimbbox.Checked;
+
+                        if (freeclimbbox.Checked)
+                            lblFreeClimb.Text = "Yes";
+                        else
+                            lblFreeClimb.Text = "No";
+
+                               
+
+                        
+
                         //belayBox.Checked = (bool)four;
                         table.Rows[i].EndEdit();
 
-                        cb = new SqlCommandBuilder(sqlDA);
-                        sqlDA.DeleteCommand = cb.GetDeleteCommand(true);
-                        sqlDA.UpdateCommand = cb.GetUpdateCommand(true);
-                        sqlDA.InsertCommand = cb.GetInsertCommand(true);
+                        cb = new MySqlCommandBuilder(sqlDA);
+                        sqlDA.UpdateCommand = cb.GetUpdateCommand();
+
 
 
                         sqlDA.Update(table);
@@ -216,8 +279,9 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                MessageBox.Show("Incorrect UserName or Password");
+                MessageBox.Show("Id not found");
             }
+            sql.Close();
 
         }
     }

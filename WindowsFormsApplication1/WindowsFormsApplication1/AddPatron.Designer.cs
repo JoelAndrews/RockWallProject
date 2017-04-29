@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1
 {
-    partial class IssueIncidentReport
+    partial class AddPatron
     {
         /// <summary>
         /// Required designer variable.
@@ -29,41 +29,46 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.searchButton = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.iDNumberBox = new System.Windows.Forms.TextBox();
             this.lNameBox = new System.Windows.Forms.TextBox();
             this.fNameBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.checkClimb = new System.Windows.Forms.CheckBox();
+            this.checkBelay = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.searchButton);
+            this.groupBox1.Controls.Add(this.checkBelay);
+            this.groupBox1.Controls.Add(this.checkClimb);
+            this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.iDNumberBox);
             this.groupBox1.Controls.Add(this.lNameBox);
             this.groupBox1.Controls.Add(this.fNameBox);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(21, 22);
+            this.groupBox1.Location = new System.Drawing.Point(32, 32);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(327, 293);
-            this.groupBox1.TabIndex = 3;
+            this.groupBox1.Size = new System.Drawing.Size(327, 457);
+            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Search for Patron";
+            this.groupBox1.Text = "Add Patron";
             // 
-            // searchButton
+            // btnAdd
             // 
-            this.searchButton.Location = new System.Drawing.Point(74, 196);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(157, 53);
-            this.searchButton.TabIndex = 3;
-            this.searchButton.Text = "Search";
-            this.searchButton.UseVisualStyleBackColor = true;
+            this.btnAdd.Location = new System.Drawing.Point(66, 381);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(157, 53);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "Add Patron";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // iDNumberBox
             // 
@@ -113,23 +118,45 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "First Name:";
             // 
+            // checkClimb
+            // 
+            this.checkClimb.AutoSize = true;
+            this.checkClimb.Location = new System.Drawing.Point(30, 230);
+            this.checkClimb.Name = "checkClimb";
+            this.checkClimb.Size = new System.Drawing.Size(133, 29);
+            this.checkClimb.TabIndex = 7;
+            this.checkClimb.Text = "Free Climb";
+            this.checkClimb.UseVisualStyleBackColor = true;
+            // 
+            // checkBelay
+            // 
+            this.checkBelay.AutoSize = true;
+            this.checkBelay.Location = new System.Drawing.Point(30, 183);
+            this.checkBelay.Name = "checkBelay";
+            this.checkBelay.Size = new System.Drawing.Size(92, 29);
+            this.checkBelay.TabIndex = 8;
+            this.checkBelay.Text = "Belay ";
+            this.checkBelay.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 39);
+            this.label1.Location = new System.Drawing.Point(27, 511);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 25);
-            this.label1.TabIndex = 2;
+            this.label1.Size = new System.Drawing.Size(64, 25);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "label1";
+            this.label1.Visible = false;
             // 
-            // IssueIncidentReport
+            // AddPatron
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(954, 611);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(553, 560);
             this.Controls.Add(this.label1);
-            this.Name = "IssueIncidentReport";
-            this.Text = "IssueIncidentReport";
+            this.Controls.Add(this.groupBox1);
+            this.Name = "AddPatron";
+            this.Text = "AddPatron";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -140,13 +167,15 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox iDNumberBox;
         private System.Windows.Forms.TextBox lNameBox;
         private System.Windows.Forms.TextBox fNameBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox checkBelay;
+        private System.Windows.Forms.CheckBox checkClimb;
         private System.Windows.Forms.Label label1;
     }
 }
